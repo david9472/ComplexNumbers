@@ -98,16 +98,20 @@ class ComplexNumber
 
     public ComplexNumber add(final ComplexNumber other)
     {
-        num_.re_ = num_.re_ + other.num_.re_;
-        num_.im_ = num_.im_ + other.num_.im_;
-        return this;
+        ComplexNumber ret = new ComplexNumber();
+
+        ret.num_.re_ = num_.re_ + other.num_.re_;
+        ret.num_.im_ = num_.im_ + other.num_.im_;
+        return ret;
     }
 
     public ComplexNumber subtract(final ComplexNumber other)
     {
-        num_.re_ = num_.re_ - other.num_.re_;
-        num_.im_ = num_.im_ - other.num_.im_;
-        return this;
+        ComplexNumber ret = new ComplexNumber();
+
+        ret.num_.re_ = num_.re_ - other.num_.re_;
+        ret.num_.im_ = num_.im_ - other.num_.im_;
+        return ret;
     }
 
     public ComplexNumber multiply(final ComplexNumber other)
@@ -117,9 +121,10 @@ class ComplexNumber
 
         pThis.len_ = pThis.len_ * pOther.len_;
         pThis.angle_ = pThis.angle_ + pOther.angle_;
-        
-        num_ = pThis.convertToCartesian();
-        return this;
+
+        ComplexNumber ret = new ComplexNumber();
+        ret.setPolarCoord(pThis);
+        return ret;
     }
 
     public ComplexNumber divide(final ComplexNumber other)
@@ -129,9 +134,10 @@ class ComplexNumber
 
         pThis.len_ = pThis.len_ / pOther.len_;
         pThis.angle_ = pThis.angle_ - pOther.angle_;
-        
-        num_ = pThis.convertToCartesian();
-        return this;
+
+        ComplexNumber ret = new ComplexNumber();
+        ret.setPolarCoord(pThis);
+        return ret;
     }
 
     public ComplexNumber squareRoot()

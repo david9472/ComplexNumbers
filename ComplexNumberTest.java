@@ -186,10 +186,37 @@ class ComplexNumberTest {
         ComplexNumber num2 = new ComplexNumber();
         num2.setCartesianCoord(re_2, im_2);
 
-        num1.add(num2);
+        ComplexNumber ret = num1.add(num2);
 
-        assertTrue(equal(num1.getCartesian().re_, re_1+re_2));
-        assertTrue(equal(num1.getCartesian().im_, im_1+im_2));
+        assertTrue(equal(ret.getCartesian().re_, re_1+re_2));
+        assertTrue(equal(ret.getCartesian().im_, im_1+im_2));
+
+        assertTrue(equal(num1.getCartesian().re_, re_1));
+        assertTrue(equal(num1.getCartesian().im_, im_1));
+        assertTrue(equal(num2.getCartesian().re_, re_2));
+        assertTrue(equal(num2.getCartesian().im_, im_2));
+    }
+
+    @org.junit.jupiter.api.Test
+    void addImaginaryOnly()
+    {
+        final double re_1 = 32;
+        final double im_1 = 897;
+        final double re_2 = 0;
+        final double im_2 = 7238;
+        ComplexNumber num1 = new ComplexNumber();
+        num1.setCartesianCoord(re_1, im_1);
+
+        ComplexNumber num2 = new ComplexNumber();
+        num2.setCartesianCoord(re_2, im_2);
+
+        ComplexNumber ret = num1.add(num2);
+
+        assertTrue(equal(ret.getCartesian().re_, re_1+re_2));
+        assertTrue(equal(ret.getCartesian().im_, im_1+im_2));
+
+        assertTrue(equal(num1.getCartesian().re_, re_1));
+        assertTrue(equal(num1.getCartesian().im_, im_1));
         assertTrue(equal(num2.getCartesian().re_, re_2));
         assertTrue(equal(num2.getCartesian().im_, im_2));
     }
@@ -207,10 +234,13 @@ class ComplexNumberTest {
         ComplexNumber num2 = new ComplexNumber();
         num2.setCartesianCoord(re_2, im_2);
 
-        num1.subtract(num2);
+        ComplexNumber ret = num1.subtract(num2);
 
-        assertTrue(equal(num1.getCartesian().re_, re_1-re_2));
-        assertTrue(equal(num1.getCartesian().im_, im_1-im_2));
+        assertTrue(equal(ret.getCartesian().re_, re_1-re_2));
+        assertTrue(equal(ret.getCartesian().im_, im_1-im_2));
+
+        assertTrue(equal(num1.getCartesian().re_, re_1));
+        assertTrue(equal(num1.getCartesian().im_, im_1));
         assertTrue(equal(num2.getCartesian().re_, re_2));
         assertTrue(equal(num2.getCartesian().im_, im_2));
     }
@@ -228,10 +258,13 @@ class ComplexNumberTest {
         ComplexNumber num2 = new ComplexNumber();
         num2.setCartesianCoord(re_2, im_2);
 
-        num1.subtract(num2);
+        ComplexNumber ret = num1.subtract(num2);
 
-        assertTrue(equal(num1.getCartesian().re_, re_1-re_2));
-        assertTrue(equal(num1.getCartesian().im_, im_1-im_2));
+        assertTrue(equal(ret.getCartesian().re_, re_1-re_2));
+        assertTrue(equal(ret.getCartesian().im_, im_1-im_2));
+
+        assertTrue(equal(num1.getCartesian().re_, re_1));
+        assertTrue(equal(num1.getCartesian().im_, im_1));
         assertTrue(equal(num2.getCartesian().re_, re_2));
         assertTrue(equal(num2.getCartesian().im_, im_2));
     }
@@ -249,10 +282,13 @@ class ComplexNumberTest {
         ComplexNumber num2 = new ComplexNumber();
         num2.setCartesianCoord(re_2, im_2);
 
-        num1.subtract(num2);
+        ComplexNumber ret = num1.subtract(num2);
 
-        assertTrue(equal(num1.getCartesian().re_, re_1-re_2));
-        assertTrue(equal(num1.getCartesian().im_, im_1-im_2));
+        assertTrue(equal(ret.getCartesian().re_, re_1-re_2));
+        assertTrue(equal(ret.getCartesian().im_, im_1-im_2));
+
+        assertTrue(equal(num1.getCartesian().re_, re_1));
+        assertTrue(equal(num1.getCartesian().im_, im_1));
         assertTrue(equal(num2.getCartesian().re_, re_2));
         assertTrue(equal(num2.getCartesian().im_, im_2));
     }
@@ -270,10 +306,13 @@ class ComplexNumberTest {
         ComplexNumber num2 = new ComplexNumber();
         num2.setCartesianCoord(re_2, im_2);
 
-        num1.multiply(num2);
+        ComplexNumber ret = num1.multiply(num2);
 
-        assertTrue(equal(num1.getCartesian().re_, -110));
-        assertTrue(equal(num1.getCartesian().im_, 296));
+        assertTrue(equal(ret.getCartesian().re_, -110));
+        assertTrue(equal(ret.getCartesian().im_, 296));
+
+        assertTrue(equal(num1.getCartesian().re_, re_1));
+        assertTrue(equal(num1.getCartesian().im_, im_1));
         assertTrue(equal(num2.getCartesian().re_, re_2));
         assertTrue(equal(num2.getCartesian().im_, im_2));
     }
@@ -291,10 +330,13 @@ class ComplexNumberTest {
         ComplexNumber num2 = new ComplexNumber();
         num2.setCartesianCoord(re_2, im_2);
 
-        num1.multiply(num2);
+        ComplexNumber ret = num1.multiply(num2);
 
-        assertTrue(equal(num1.getCartesian().re_, -1050));
-        assertTrue(equal(num1.getCartesian().im_, 936));
+        assertTrue(equal(ret.getCartesian().re_, -1050));
+        assertTrue(equal(ret.getCartesian().im_, 936));
+
+        assertTrue(equal(num1.getCartesian().re_, re_1));
+        assertTrue(equal(num1.getCartesian().im_, im_1));
         assertTrue(equal(num2.getCartesian().re_, re_2));
         assertTrue(equal(num2.getCartesian().im_, im_2));
     }
@@ -312,10 +354,37 @@ class ComplexNumberTest {
         ComplexNumber num2 = new ComplexNumber();
         num2.setCartesianCoord(re_2, im_2);
 
-        num1.multiply(num2);
+        ComplexNumber ret = num1.multiply(num2);
 
-        assertTrue(equal(num1.getCartesian().re_, -164));
-        assertTrue(equal(num1.getCartesian().im_, 402));
+        assertTrue(equal(ret.getCartesian().re_, -164));
+        assertTrue(equal(ret.getCartesian().im_, 402));
+
+        assertTrue(equal(num1.getCartesian().re_, re_1));
+        assertTrue(equal(num1.getCartesian().im_, im_1));
+        assertTrue(equal(num2.getCartesian().re_, re_2));
+        assertTrue(equal(num2.getCartesian().im_, im_2));
+    }
+
+    @org.junit.jupiter.api.Test
+    void multiplyImaginaryOnly()
+    {
+        final double re_1 = -15;
+        final double im_1 = -23;
+        final double re_2 = 0;
+        final double im_2 = 1;
+        ComplexNumber num1 = new ComplexNumber();
+        num1.setCartesianCoord(re_1, im_1);
+
+        ComplexNumber num2 = new ComplexNumber();
+        num2.setCartesianCoord(re_2, im_2);
+
+        ComplexNumber ret = num1.multiply(num2);
+
+        assertTrue(equal(ret.getCartesian().re_, 23));
+        assertTrue(equal(ret.getCartesian().im_, -15));
+
+        assertTrue(equal(num1.getCartesian().re_, re_1));
+        assertTrue(equal(num1.getCartesian().im_, im_1));
         assertTrue(equal(num2.getCartesian().re_, re_2));
         assertTrue(equal(num2.getCartesian().im_, im_2));
     }
@@ -333,10 +402,13 @@ class ComplexNumberTest {
         ComplexNumber num2 = new ComplexNumber();
         num2.setCartesianCoord(re_2, im_2);
 
-        num1.divide(num2);
+        ComplexNumber ret = num1.divide(num2);
 
-        assertTrue(equal(num1.getCartesian().re_, (66.0/29.0)));
-        assertTrue(equal(num1.getCartesian().im_, (-67.0/29.0)));
+        assertTrue(equal(ret.getCartesian().re_, (66.0/29.0)));
+        assertTrue(equal(ret.getCartesian().im_, (-67.0/29.0)));
+
+        assertTrue(equal(num1.getCartesian().re_, re_1));
+        assertTrue(equal(num1.getCartesian().im_, im_1));
         assertTrue(equal(num2.getCartesian().re_, re_2));
         assertTrue(equal(num2.getCartesian().im_, im_2));
     }
@@ -354,10 +426,13 @@ class ComplexNumberTest {
         ComplexNumber num2 = new ComplexNumber();
         num2.setCartesianCoord(re_2, im_2);
 
-        num1.divide(num2);
+        ComplexNumber ret = num1.divide(num2);
 
-        assertTrue(equal(num1.getCartesian().re_, (467.0/97.0)));
-        assertTrue(equal(num1.getCartesian().im_, (493.0/97.0)));
+        assertTrue(equal(ret.getCartesian().re_, (467.0/97.0)));
+        assertTrue(equal(ret.getCartesian().im_, (493.0/97.0)));
+
+        assertTrue(equal(num1.getCartesian().re_, re_1));
+        assertTrue(equal(num1.getCartesian().im_, im_1));
         assertTrue(equal(num2.getCartesian().re_, re_2));
         assertTrue(equal(num2.getCartesian().im_, im_2));
     }
@@ -375,12 +450,37 @@ class ComplexNumberTest {
         ComplexNumber num2 = new ComplexNumber();
         num2.setCartesianCoord(re_2, im_2);
 
-        num1.divide(num2);
+        ComplexNumber ret = num1.divide(num2);
 
-        assertTrue(equal(num1.getCartesian().re_, (-427.0/185.0)));
-        assertTrue(equal(num1.getCartesian().im_, (324.0/185.0)));
+        assertTrue(equal(ret.getCartesian().re_, (-427.0/185.0)));
+        assertTrue(equal(ret.getCartesian().im_, (324.0/185.0)));
+
+        assertTrue(equal(num1.getCartesian().re_, re_1));
+        assertTrue(equal(num1.getCartesian().im_, im_1));
         assertTrue(equal(num2.getCartesian().re_, re_2));
         assertTrue(equal(num2.getCartesian().im_, im_2));
+    }
+
+    @org.junit.jupiter.api.Test
+    void divideRealSetToZero()
+    {
+        final double re_1 =-23;
+        final double im_1 = 32;
+        final double re_2 = 0;
+        final double im_2 = 7;
+        ComplexNumber num1 = new ComplexNumber();
+        num1.setCartesianCoord(re_1, im_1);
+
+        ComplexNumber num2 = new ComplexNumber();
+        num2.setCartesianCoord(re_2, im_2);
+
+        ComplexNumber ret = num1.divide(num2);
+
+        assertTrue(ret.getCartesian().re_ > 4.571427);
+        assertTrue(ret.getCartesian().re_ < 4.571429);
+
+        assertTrue(ret.getCartesian().im_ > 3.285713);
+        assertTrue(ret.getCartesian().im_ < 3.285715);
     }
 
     @org.junit.jupiter.api.Test
