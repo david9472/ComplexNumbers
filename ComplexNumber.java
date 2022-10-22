@@ -124,6 +124,11 @@ class ComplexNumber
     private CartesianCoord num_;
 
     /**
+     * @brief smallest difference between two numbers. This constant is used for comparing numbers on equality.
+     */
+    private final double epsilon = Math.pow(10, -5);
+
+    /**
      * @class ComplexNumber
      * @func ComplexNumber
      * @brief Constructor. Initializes all member to a default value.
@@ -331,25 +336,16 @@ class ComplexNumber
         return ret;
     }
 
-    public static void main(String args[])
+    /**
+     * @class ComplexNumber
+     * @func equal
+     * @brief compares two complex numbers for equality
+     * @param other Complex number which should be checked on equality with current number
+     * @return true - both complex numbers have a smaller difference in both, real- and imaginary-part than defined by the constant epsilon;
+     *         false - else
+     */
+    public boolean equal(final ComplexNumber other)
     {
-       ComplexNumber complex = new ComplexNumber();
-
-        ComplexNumber.PolarCoord pCoord = new ComplexNumber.PolarCoord(3,Math.PI);
-        ComplexNumber.PolarCoord pCoord2 = new ComplexNumber.PolarCoord(2,Math.PI);
-
-        System.out.println(pCoord.len_);
-
-    
-    
-    
-    
-    
+        return ((Math.abs(num_.re_ - other.num_.re_) < epsilon) && (Math.abs(num_.im_ - other.num_.im_) < epsilon));
     }
-
-
-
-
-
-
 }
