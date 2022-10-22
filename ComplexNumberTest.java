@@ -3,7 +3,7 @@ import java.beans.PropertyEditorSupport;
 import static org.junit.jupiter.api.Assertions.*;
 
 class ComplexNumberTest {
-    final double PRECISION = 0.000000001;
+    final double PRECISION = Math.pow(10, -6);
     private boolean equal(final double a, final double b)
     {
         return (Math.abs(a-b) < PRECISION);
