@@ -75,7 +75,7 @@ class ComplexNumber
         double len_;
 
         /**
-         * @brieg angle of the complex number (in range [-pi, pi])
+         * @brief angle of the complex number (in range [-pi, pi])
          */
         double angle_;
 
