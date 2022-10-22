@@ -484,6 +484,44 @@ class ComplexNumberTest {
     }
 
     @org.junit.jupiter.api.Test
+    void divide1()
+    {
+        final double re_1 = 2;
+        final double im_1 = 3;
+        final double re_2 = 3;
+        final double im_2 = -4;
+        ComplexNumber num1 = new ComplexNumber();
+        num1.setCartesianCoord(re_1, im_1);
+
+        ComplexNumber num2 = new ComplexNumber();
+        num2.setCartesianCoord(re_2, im_2);
+
+        ComplexNumber ret = num1.divide(num2);
+
+        assertTrue(equal(ret.getCartesian().re_, -6.0/25.0));
+        assertTrue(equal(ret.getCartesian().im_, 17.0/25.0));
+    }
+
+    @org.junit.jupiter.api.Test
+    void divide2()
+    {
+        final double re_1 = 1;
+        final double im_1 = -2;
+        final double re_2 = 0;
+        final double im_2 = 1;
+        ComplexNumber num1 = new ComplexNumber();
+        num1.setCartesianCoord(re_1, im_1);
+
+        ComplexNumber num2 = new ComplexNumber();
+        num2.setCartesianCoord(re_2, im_2);
+
+        ComplexNumber ret = num1.divide(num2);
+
+        assertTrue(equal(ret.getCartesian().re_, -2));
+        assertTrue(equal(ret.getCartesian().im_, -1));
+    }
+
+    @org.junit.jupiter.api.Test
     void squareRootAllPositve()
     {
         final double re_1 =4;
@@ -643,4 +681,262 @@ class ComplexNumberTest {
         assertTrue(equal(95, ret.getCartesian().re_));
         assertTrue(equal(168, ret.getCartesian().im_));
     }
+
+    @org.junit.jupiter.api.Test
+    void PowerSeven()
+    {
+        final double re_1 = -3;
+        final double im_1 = 23;
+        ComplexNumber num1 = new ComplexNumber();
+        num1.setCartesianCoord(re_1, im_1);
+
+        ComplexNumber ret = num1.power(7);
+        assertTrue(equal(2.847001224 * Math.pow(10, 9), ret.getCartesian().re_));
+        assertTrue(equal(-2.222732696 * Math.pow(10, 9), ret.getCartesian().im_));
+    }
+
+    @org.junit.jupiter.api.Test
+    void TestEqual0()
+    {
+        final double re_1 = 12;
+        final double im_1 = 90390;
+        final double re_2 = 8934;
+        final double im_2 = 1;
+
+        ComplexNumber num1 = new ComplexNumber();
+        num1.setCartesianCoord(re_1, im_1);
+
+        ComplexNumber num2 = new ComplexNumber();
+        num2.setCartesianCoord(re_2, im_2);
+
+        assertFalse(num1.equal(num2));
+    }
+
+    @org.junit.jupiter.api.Test
+    void TestEqual1()
+    {
+        final double re_1 = 12;
+        final double im_1 = 1;
+        final double re_2 = 12.00001;
+        final double im_2 = 1;
+
+        ComplexNumber num1 = new ComplexNumber();
+        num1.setCartesianCoord(re_1, im_1);
+
+        ComplexNumber num2 = new ComplexNumber();
+        num2.setCartesianCoord(re_2, im_2);
+
+        assertTrue(num1.equal(num2));
+    }
+
+    @org.junit.jupiter.api.Test
+    void TestEqual2()
+    {
+        final double re_1 = 12;
+        final double im_1 = 1;
+        final double re_2 = 12.0000001;
+        final double im_2 = 1;
+
+        ComplexNumber num1 = new ComplexNumber();
+        num1.setCartesianCoord(re_1, im_1);
+
+        ComplexNumber num2 = new ComplexNumber();
+        num2.setCartesianCoord(re_2, im_2);
+
+        assertTrue(num1.equal(num2));
+    }
+
+    @org.junit.jupiter.api.Test
+    void TestEqual2_1()
+    {
+        final double re_1 = 12;
+        final double im_1 = 1;
+        final double re_2 = 12;
+        final double im_2 = 1.0000001;
+
+        ComplexNumber num1 = new ComplexNumber();
+        num1.setCartesianCoord(re_1, im_1);
+
+        ComplexNumber num2 = new ComplexNumber();
+        num2.setCartesianCoord(re_2, im_2);
+
+        assertTrue(num1.equal(num2));
+    }
+
+    @org.junit.jupiter.api.Test
+    void TestEqual3()
+    {
+        final double re_1 = 18932;
+        final double im_1 = 1;
+        final double re_2 = 18932;
+        final double im_2 = 1;
+
+        ComplexNumber num1 = new ComplexNumber();
+        num1.setCartesianCoord(re_1, im_1);
+
+        ComplexNumber num2 = new ComplexNumber();
+        num2.setCartesianCoord(re_2, im_2);
+
+        assertTrue(num1.equal(num2));
+    }
+
+    @org.junit.jupiter.api.Test
+    void TestEqual4()
+    {
+        final double re_1 = -423;
+        final double im_1 = 1;
+        final double re_2 = 423;
+        final double im_2 = 1;
+
+        ComplexNumber num1 = new ComplexNumber();
+        num1.setCartesianCoord(re_1, im_1);
+
+        ComplexNumber num2 = new ComplexNumber();
+        num2.setCartesianCoord(re_2, im_2);
+
+        assertFalse(num1.equal(num2));
+    }
+
+    @org.junit.jupiter.api.Test
+    void TestEqual5()
+    {
+        final double re_1 = 90;
+        final double im_1 = -1;
+        final double re_2 = 90;
+        final double im_2 = 1;
+
+        ComplexNumber num1 = new ComplexNumber();
+        num1.setCartesianCoord(re_1, im_1);
+
+        ComplexNumber num2 = new ComplexNumber();
+        num2.setCartesianCoord(re_2, im_2);
+
+        assertFalse(num1.equal(num2));
+    }
+
+    @org.junit.jupiter.api.Test
+    void TestEqual6()
+    {
+        final double re_1 = -90;
+        final double im_1 = -1;
+        final double re_2 = -90;
+        final double im_2 = -1;
+
+        ComplexNumber num1 = new ComplexNumber();
+        num1.setCartesianCoord(re_1, im_1);
+
+        ComplexNumber num2 = new ComplexNumber();
+        num2.setCartesianCoord(re_2, im_2);
+
+        assertTrue(num1.equal(num2));
+    }
+
+    @org.junit.jupiter.api.Test
+    void MethodChainingAddSubtract()
+    {
+        final double re_1 = 897;
+        final double im_1 = 123;
+        final double re_2 = 672;
+        final double im_2 = 21;
+
+        ComplexNumber num1 = new ComplexNumber();
+        num1.setCartesianCoord(re_1, im_1);
+
+        ComplexNumber num2 = new ComplexNumber();
+        num2.setCartesianCoord(re_2, im_2);
+
+        ComplexNumber ret = num1.add(num2).subtract(num2);
+        assertTrue(ret.equal(num1));
+    }
+
+    @org.junit.jupiter.api.Test
+    void MethodChainingSubtractAdd()
+    {
+        final double re_1 = 83;
+        final double im_1 = 453;
+        final double re_2 = 12;
+        final double im_2 = 54;
+
+        ComplexNumber num1 = new ComplexNumber();
+        num1.setCartesianCoord(re_1, im_1);
+
+        ComplexNumber num2 = new ComplexNumber();
+        num2.setCartesianCoord(re_2, im_2);
+
+        ComplexNumber ret = num1.subtract(num2).add(num2);
+        assertTrue(ret.equal(num1));
+    }
+
+    @org.junit.jupiter.api.Test
+    void MethodChainingMultiplyDivide()
+    {
+        final double re_1 = 12;
+        final double im_1 = 32;
+        final double re_2 = 3;
+        final double im_2 = 8;
+
+        ComplexNumber num1 = new ComplexNumber();
+        num1.setCartesianCoord(re_1, im_1);
+
+        ComplexNumber num2 = new ComplexNumber();
+        num2.setCartesianCoord(re_2, im_2);
+
+        ComplexNumber ret = num1.multiply(num2).divide(num2);
+        assertTrue(ret.equal(num1));
+    }
+
+    @org.junit.jupiter.api.Test
+    void MethodChainingDivideMultiply()
+    {
+        final double re_1 = 98;
+        final double im_1 = 21;
+        final double re_2 = 5;
+        final double im_2 = 72;
+
+        ComplexNumber num1 = new ComplexNumber();
+        num1.setCartesianCoord(re_1, im_1);
+
+        ComplexNumber num2 = new ComplexNumber();
+        num2.setCartesianCoord(re_2, im_2);
+
+        ComplexNumber ret = num1.divide(num2).multiply(num2);
+        assertTrue(ret.equal(num1));
+    }
+
+    @org.junit.jupiter.api.Test
+    void MethodChainingPowerSqrt()
+    {
+        final double re_1 = 82;
+        final double im_1 = 983;
+        final double re_2 = 9;
+        final double im_2 = 92;
+
+        ComplexNumber num1 = new ComplexNumber();
+        num1.setCartesianCoord(re_1, im_1);
+
+        ComplexNumber num2 = new ComplexNumber();
+        num2.setCartesianCoord(re_2, im_2);
+
+        ComplexNumber ret = num1.power(2).squareRoot();
+        assertTrue(ret.equal(num1));
+    }
+
+    @org.junit.jupiter.api.Test
+    void MethodChainingSqrtPower()
+    {
+        final double re_1 = 873;
+        final double im_1 = 782;
+        final double re_2 = 983;
+        final double im_2 = 672;
+
+        ComplexNumber num1 = new ComplexNumber();
+        num1.setCartesianCoord(re_1, im_1);
+
+        ComplexNumber num2 = new ComplexNumber();
+        num2.setCartesianCoord(re_2, im_2);
+
+        ComplexNumber ret = num1.squareRoot().power(2);
+        assertTrue(ret.equal(num1));
+    }
+
 }
